@@ -31,7 +31,11 @@ const Month = MonthName[Time.getMonth()];
 const Year = Time.getFullYear();
 
 export default function todo() {
-  const [TodoList, setTodoList] = useState(localStorage.getItem("todos") ? JSON.parse(localStorage.getItem("todos")) : []);
+  const [TodoList, setTodoList] = useState(
+    localStorage.getItem("todos")
+      ? JSON.parse(localStorage.getItem("todos"))
+      : []
+  );
   const inputRef = useRef();
 
   const add = () => {
@@ -58,19 +62,18 @@ export default function todo() {
 
   const toggle = (id) => {
     setTodoList((prevTodos) => {
-        return prevTodos.map((todo) =>{
-            if(todo.id=== id){
-                return {...todo, isComplete: !todo.isComplete}
-            }
-            return todo;
-        })
-    })
-  }
+      return prevTodos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, isComplete: !todo.isComplete };
+        }
+        return todo;
+      });
+    });
+  };
 
-  useEffect(() =>{
-    localStorage.setItem("todos", JSON.stringify(TodoList))
-  },[TodoList])
-
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(TodoList));
+  }, [TodoList]);
 
   return (
     <div className="w-full h-dvh bg-slate-50 flex justify-center items-center">
@@ -89,7 +92,6 @@ export default function todo() {
             name="list"
             id="list"
             placeholder="Add your task"
-            
           />
           <button
             onClick={add}

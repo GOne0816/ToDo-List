@@ -96,7 +96,7 @@ export default function todo() {
           <button
             onClick={add}
             type="submit"
-            className=" bg-red-500 text-white py-2 max-px-8 font-bold rounded-full w-[25%]"
+            className=" bg-black text-white py-2 max-px-8 font-bold rounded-full w-[25%]"
           >
             ADD
           </button>

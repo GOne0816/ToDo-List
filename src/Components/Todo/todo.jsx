@@ -39,6 +39,7 @@ export default function todo() {
   const inputRef = useRef();
 
   const add = () => {
+
     const inputText = inputRef.current.value.trim();
 
     if (inputText === "") {
